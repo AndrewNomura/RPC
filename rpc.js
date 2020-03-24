@@ -5,10 +5,10 @@ let express = require("express");
 let rpc = express();
 
 
-// This responds with "Hello World" on the homepage
+// Gets the index.html homepage
 rpc.get('/', function(req, res) {
 	console.log("Got a GET request for the homepage");
-	res.send("Hello GET");
+	res.sendFile('index.html' , {root: __dirname})
 })
 
 // This responds a POST request for the homepage

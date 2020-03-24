@@ -22,10 +22,16 @@
 
 		<div class="intro">
 			<h1>Please make your move!</h1>
-			<button>Rock</button>
-			<button>Paper</button>
-			<button>Scissors</button>
-			<button>Play!</button>
+			<form action="/" method="POST">
+			<input type="radio" id="rock" name="gameOptions" value="Rock">
+			<label for="rock">Rock</label><br>
+			<input type="radio" id="paper" name="gameOptions" value="Paper">
+			<label for="paper">Paper</label><br>
+			<input type="radio" id="scissors" name="gameOptions" value="Scissors">
+			<label for="scissors">Scissors</label><br>
+			<input type="submit" value="Play!">
+			</form>
+			
 		</div>
 
 		<div class="match">
