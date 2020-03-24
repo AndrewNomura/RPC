@@ -4,6 +4,10 @@
 let express = require("express");
 let rpc = express();
 
+// Needed to parse the request body
+const bodyParser = require('body-parser'); 
+rpc.use(bodyParser.urlencoded({ extended: true })); // supports URL encoded bodies
+
 
 // Gets the index.html homepage
 rpc.get('/', function(req, res) {
@@ -12,9 +16,9 @@ rpc.get('/', function(req, res) {
 })
 
 // This responds a POST request for the homepage
-rpc.post('/', function(req, res) {
+rpc.post('/play', function(req, res) {
 	console.log("Got a POST request for the homepage");
-	res.send("Hello POST");
+	res.send("You selected "+ req.body.gameOptions);
 })
 
 // This ressponds a DELETE request for the /del_user page
