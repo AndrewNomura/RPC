@@ -19,25 +19,110 @@ rpc.get('/', function(req, res) {
 rpc.post('/play', function(req, res) {
 	console.log("Got a POST request for the homepage");
 	res.send("You selected "+ req.body.gameOptions);
+	game();
 })
 
-// This ressponds a DELETE request for the /del_user page
-rpc.delete('/del_user', function(req, res) {
-	console.log("Got a DELETE request for /del_user");
-	res.send("Hello DELETE");
-})
 
-// This responds a GET request for the /list_user page
-rpc.get('/list_user', function(req, res) {
-	console.log("Got a GET request for /list_user");
-res.send("Page Listing");
-})
+const game = () =>{
+	let playerScore = 0;
+	let computerScore = 0;
 
-// This responds a GET request for abcd, abxcd, ab123cd, and so on
-rpc.get('/ab*cd', function(req, res) {
-	console.log("Got a GET request for /ab*cd");
-	res.send("Page Patern Match");
-})
+
+	// Start the game
+	const startGame = () =>{
+		const playBtn = function(){
+			document.getElementById("Play!").click(); 
+			const playerChoice = document.querySelectorAll('.gameOptions radio');
+			const computerOptions = ['rock', 'paper', 'scissors'];
+
+			gameOptions.forEach(computerOptions=>{
+				// Computer choice
+				gameOptions.addEventListener('click', function(){
+					const computerNumber = Math.floor(Math.random() * 3);
+					const computerChoice = computerOptions[computerNumber];
+
+					//Here is where we call compareHands;
+					compareHands(this.textContent, computerChoice);
+				});
+			});
+
+			
+			
+		};
+
+		const updateScore = () => {
+			const playerScore = document.querySelector('.playerScore p');
+			const computerScore = document.querySelector('.computerScore p');
+			playerScore.textContent = playerScore;
+			computerScore.textContent = computerScore;
+		}
+
+		const compareHands = (playerChoice, computerChoice) =>{
+			//Update text
+			const winner = document.querySelector('.winner');
+			//check for a tie
+			if(playerChoice === computerChoice){
+				winner.textContent = "It is a tie";
+				return;
+			}
+			//check for rock
+			if(playerChoice === 'rock'){
+				if(computerChoice === 'scissors'){
+					winner.textContent = 'Player Wins!';
+					playerScore++;
+					updateScore();
+					return;
+				}
+				else{
+					winner.textContent = 'Computer Wins!';
+					computerScore++;
+					updateScore();
+					return;
+				}
+			}
+			//check for paper
+			if(playerChoice === 'paper'){
+				if(computerChoice === 'rock'){
+					winner.textContent = 'Player Wins!';
+					playerScore++;
+					updateScore();
+					return;
+				}
+				else{
+					winner.textContent = 'Computer Wins!';
+					computerScore++;
+					updateScore();
+					return;
+				}
+			}
+			//check for scissors
+			if(playerChoice === 'scissors'){
+				if(computerChoice === 'paper'){
+					winner.textContent = 'Player Wins!';
+					playerScore++;
+					updateScore();
+					return;
+				}
+				else {
+					winner.textContent = 'Computer Wins!';
+					computerScore++;
+					updateScore();
+					return;
+				}
+			}
+
+		}
+	};
+
+
+	startGame();
+};
+
+	// start the game
+	game();
+
+
+
 
 
 let server = rpc.listen(8081, function () {
@@ -47,3 +132,5 @@ let server = rpc.listen(8081, function () {
 
 	console.log("rpc listening at http://%s:%s", host, port);
 });
+
+
