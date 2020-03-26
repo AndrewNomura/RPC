@@ -22,14 +22,17 @@ function RPS(port) {
 	// Set ejs as the template engine
 	app.set("view engine", "ejs");
 
-	// RPS Class Variables
-	app.myRPS.serverChoice = null;
-	app.myRPS.playerChoice = null;
-	app.myRPS.playerWins = 0;
-	app.myRPS.serverWins = 0;
-	app.myRPS.playerWon = false;
-	app.myRPS.serverWon = false;
-	app.myRPS.gameCount = 0;
+	// RPS Class Objects
+	Object.defineProperty(app.myRPS, "serverChoice", {value: null, writable: true, configurable: false});
+	Object.defineProperty(app.myRPS, "playerChoice", {value: null, writable: true, configurable: false});
+	Object.defineProperty(app.myRPS, "playerWins", {value: 0, writable: true, configurable: false});
+	Object.defineProperty(app.myRPS, "serverWins", {value: 0, writable: true, configurable: false});
+	Object.defineProperty(app.myRPS, "playerWon", {value: false, writable: true, configurable: false});
+	Object.defineProperty(app.myRPS, "serverWon", {value: false, writable: true, configurable: false});
+	Object.defineProperty(app.myRPS, "gameCount", {value: 0, writable: true, configurable: false});
+	Object.seal(app)
+	Object.seal(app.myRPS)	// We only seal because we want to be able to edit the property values but not be able to add on
+							// more properties.
 
 
 	//	Routing
