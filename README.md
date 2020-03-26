@@ -18,7 +18,7 @@ Shane Spangenberg sjs445@csu.fullerton.edu
 
 
 
-To run on linux terminal, it needs Javascript and npm express.
+To run on linux terminal, it needs Javascript, npm express, and npm ejs.
 
 To install Javascript and npm:
 
@@ -31,9 +31,12 @@ sudo apt install nodejs
 ```
 sudo npm install express
 ```
+```
+sudo npm install ejs
+```
 
 To run the application, open terminal and type in:
 
 ```
-node rpc.js
+node rps.js
 ```
