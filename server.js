@@ -27,4 +27,4 @@ rpc.get('/about', function(req, res) {
 	res.render('pages/about');
 });
 
-rpc.listen(8081);
+rpc.listen(3000);
