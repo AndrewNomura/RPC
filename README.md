@@ -8,6 +8,7 @@ Tuan Lai tlai23@csu.fullerton.edu
 
 Andrew Ta andrewman8798@csu.fullerton.edu
 
+Shane Spangenberg sjs445@csu.fullerton.edu
 
 
 
@@ -23,10 +24,16 @@ To install Javascript and npm:
 
 Open terminal and type:
 
+```
 sudo apt install nodejs
+```
 
+```
 sudo npm install express
+```
 
 To run the application, open terminal and type in:
 
+```
 node rpc.js
+```
