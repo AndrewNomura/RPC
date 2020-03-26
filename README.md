@@ -40,3 +40,7 @@ To run the application, open terminal and type in:
 ```
 node rps.js
 ```
+
+Open web browser and type http://localhost:3000 in the URL
+
+Enjoy the game!
