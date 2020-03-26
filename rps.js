@@ -139,4 +139,4 @@ RPS.prototype.compareHands = function (playersChoice) {
 	}
 }
 
-let rps = new RPS(8081)
+let rps = new RPS(3000)
