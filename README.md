@@ -43,4 +43,6 @@ node rps.js
 
 Open web browser and type http://localhost:3000 in the URL
 
+We did not implement the extra-credit
+
 Enjoy the game!
